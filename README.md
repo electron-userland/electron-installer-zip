@@ -12,6 +12,35 @@ npm i electron-installer-zip --save-dev
 npm i electron-installer-zip -g
 ```
 
+## Usage
+
+```bash
+electron-installer-zip <dir> <out>
+
+Options:
+  --verbose  Confused or trying to track down a bug and want lots of debug
+             output?                                  [boolean] [default: false]
+  --help     Show help                                                 [boolean]
+```
+
+```javascript
+var zip = require('electron-installer-zip');
+
+var opts = {
+  dir: 'dist/MongoDB Compass-darwin-x64/MongoDB Compass.app',
+  out: 'dist/'
+};
+
+zip(opts, function(err, res) {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log('Zip file written to: ', res);
+});
+
+```
+
 ## License
 
 Apache 2.0

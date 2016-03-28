@@ -16,8 +16,8 @@ module.exports = function(opts, done) {
     if (err) {
       return done(err);
     }
-    debug('building zip', opts);
 
+    debug('creating zip', opts);
     if (process.platform !== 'darwin') {
       zipFolder(opts.src, opts.dest, done);
       return;
@@ -28,6 +28,11 @@ module.exports = function(opts, done) {
       '-y',
       opts.dest
     ];
-    run('zip', args, { env: process.env, cwd: opts.src }, done);
+    run('zip', args, { env: process.env, cwd: opts.dir }, function(_err) {
+      if (_err) {
+        return done(err);
+      }
+      done(null, opts.dest);
+    });
   });
 };
