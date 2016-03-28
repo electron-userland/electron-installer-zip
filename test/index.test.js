@@ -11,7 +11,7 @@ describe('electron-installer-zip', function() {
     var options = {
       dir: path.join(__dirname, '..', 'bin'),
       out: path.join(__dirname, 'dist'),
-      platform: 'linux'
+      platform: 'darwin'
     };
 
     var zip = proxyquire('../', {
@@ -20,6 +20,9 @@ describe('electron-installer-zip', function() {
         assert(args.indexOf('--symlinks') > -1);
         assert.equal(opts.cwd, options.dir);
         cb(null, opts);
+      },
+      'zip-folder': function(src, dest, cb) {
+        cb(new Error('Should not have called zip-folder!'));
       }
     });
     zip(options, done);
