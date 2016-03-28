@@ -3,6 +3,7 @@ var path = require('path');
 var run = require('electron-installer-run');
 var zipFolder = require('zip-folder');
 var format = require('util').format;
+var series = require('async').series;
 var debug = require('debug')('electron-installer-zip');
 
 module.exports = function(opts, done) {
@@ -10,18 +11,15 @@ module.exports = function(opts, done) {
   opts.out = opts.out;
   var defaultDest = format('%s.zip', path.basename(opts.dir));
   opts.dest = opts.dest || path.resolve(opts.out, defaultDest);
+  opts.platform = opts.platform || process.platform;
 
-  debug('removing `%s` if it exists', opts.dest);
-  fs.remove(opts.dest, function(err) {
-    if (err) {
-      return done(err);
-    }
-
+  function zip(cb) {
     debug('creating zip', opts);
-    if (process.platform !== 'darwin') {
-      zipFolder(opts.src, opts.dest, done);
+    if (opts.platform !== 'darwin') {
+      zipFolder(opts.dir, opts.dest, cb);
       return;
     }
+
     var args = [
       '-r',
       '--symlinks',
@@ -30,9 +28,20 @@ module.exports = function(opts, done) {
     ];
     run('zip', args, { env: process.env, cwd: opts.dir }, function(_err) {
       if (_err) {
-        return done(err);
+        return cb(err);
       }
-      done(null, opts.dest);
+      cb(null, opts.dest);
     });
+  }
+
+  series([
+    fs.remove.bind(null, opts.dest),
+    fs.mkdirs.bind(null, path.dirname(opts.dest)),
+    zip,
+  ], function(err) {
+    if (err) {
+      return done(err);
+    }
+    done(null, opts.dest);
   });
 };
