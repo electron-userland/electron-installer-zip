@@ -23,7 +23,8 @@ module.exports = function(opts, done) {
       '-r',
       '--symlinks',
       '-y',
-      opts.dest
+      opts.dest,
+      opts.dir
     ];
     run('zip', args, { env: process.env, cwd: opts.dir }, function(_err) {
       if (_err) {
