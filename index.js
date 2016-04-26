@@ -24,7 +24,7 @@ module.exports = function(opts, done) {
       './'
     ];
 
-    run('zip', args, { env: process.env, cwd: opts.dir }, function(_err) {
+    run('zip', args, { env: process.env, cwd: path.join(opts.dir, '..') }, function(_err) {
       if (_err) {
         return cb(_err);
       }

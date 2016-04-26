@@ -18,7 +18,7 @@ describe('electron-installer-zip', function() {
       'electron-installer-run': function(bin, args, opts, cb) {
         assert.equal(bin, 'zip');
         assert(args.indexOf('--symlinks') > -1);
-        assert.equal(opts.cwd, options.dir);
+        assert.equal(opts.cwd, path.join(options.dir, '..'));
         cb(null, opts);
       },
       'zip-folder': function(src, dest, cb) {
