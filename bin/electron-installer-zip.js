@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var createCLI = require('mongodb-js-cli');
+var format = require('util').format;
 
 var cli = createCLI('electron-installer-zip');
 cli.yargs.usage('$0 <dir> <out>')
@@ -13,7 +14,7 @@ cli.yargs.usage('$0 <dir> <out>')
   .help('help');
 
 if (cli.argv.verbose) {
-  require('debug').enable('mon*');
+  require('debug').enable('mon*,ele*');
 }
 
 var zip = require('../');
@@ -24,5 +25,5 @@ var opts = {
 
 zip(opts, function(err) {
   cli.abortIfError(err);
-  cli.ok(format('Created %s', opts.dest));
+  cli.ok(format('Created %s', opts.out));
 });
