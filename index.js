@@ -1,9 +1,30 @@
 var fs = require('fs-extra');
 var path = require('path');
 var run = require('electron-installer-run');
-var zipFolder = require('zip-folder');
+var archiver = require('archiver');
 var series = require('async').series;
 var debug = require('debug')('electron-installer-zip');
+
+function zipFolder(srcFolder, zipFilePath, callback) {
+	var output = fs.createWriteStream(zipFilePath);
+	var zipArchive = archiver('zip');
+
+	output.on('close', function() {
+		callback();
+	});
+
+	zipArchive.pipe(output);
+
+	zipArchive.bulk([
+		{ cwd: srcFolder, src: ['**/*'], expand: true }
+	]);
+
+	zipArchive.finalize(function(err, bytes) {
+		if(err) {
+			callback(err);
+		}
+	});
+}
 
 module.exports = function(opts, done) {
   opts.dir = path.resolve(opts.dir);

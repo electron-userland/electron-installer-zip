@@ -26,8 +26,7 @@
     "debug": "^2.2.0",
     "electron-installer-run": "^0.1.2",
     "fs-extra": "^1.0.0",
-    "mongodb-js-cli": "0.0.3",
-    "zip-folder": "^1.0.0"
+    "mongodb-js-cli": "0.0.3"
   },
   "license": "Apache-2.0",
   "devDependencies": {
