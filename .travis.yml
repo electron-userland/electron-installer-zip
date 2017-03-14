@@ -1,8 +1,10 @@
 sudo: false
 language: node_js
 node_js:
-  - 5
   - 4
+  - 5
+  - 6
+  - 7
 script: 'npm run-script ci'
 cache:
   directories:
