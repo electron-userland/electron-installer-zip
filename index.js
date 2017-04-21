@@ -2,7 +2,6 @@ var fs = require('fs-extra');
 var path = require('path');
 var run = require('electron-installer-run');
 var zipFolder = require('zip-folder');
-var format = require('util').format;
 var series = require('async').series;
 var debug = require('debug')('electron-installer-zip');
 
