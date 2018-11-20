@@ -1,23 +1,18 @@
 {
   "name": "electron-installer-zip",
-  "description": "Create a zip file with support for symlinks required by electron on osx.",
+  "description": "Create a zipped Electron app with support for symlinks, required for macOS",
   "version": "0.1.2",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
-  "homepage": "http://github.com/mongodb-js/electron-installer-zip",
+  "homepage": "https://github.com/electron-userland/electron-installer-zip",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mongodb-js/electron-installer-zip.git"
+    "url": "https://github.com/electron-userland/electron-installer-zip.git"
   },
   "scripts": {
     "test": "npm run lint && npm run spec",
     "lint": "eslint .",
-    "spec": "mocha",
-    "check": "mongodb-js-precommit"
+    "spec": "mocha"
   },
-  "precommmit": [
-    "check",
-    "test"
-  ],
   "bin": {
     "electron-installer-zip": "bin/electron-installer-zip.js"
   },
@@ -34,9 +29,6 @@
   "devDependencies": {
     "eslint-config-mongodb-js": "^2.2.0",
     "mocha": "^3.1.2",
-    "mongodb-js-fmt": "0.0.3",
-    "mongodb-js-precommit": "^0.2.8",
-    "pre-commit": "^1.0.10",
     "proxyquire": "^1.7.4",
     "sinon": "^7.1.1"
   },
