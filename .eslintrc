@@ -1,3 +1,6 @@
 {
-  "extends": "mongodb-js/node"
+  "extends": "semistandard",
+  "env": {
+    "mocha": true
+  }
 }

@@ -5,7 +5,7 @@ var zipFolder = require('zip-folder');
 var series = require('async').series;
 var debug = require('debug')('electron-installer-zip');
 
-module.exports = function(_opts, done) {
+module.exports = function (_opts, done) {
   var opts = Object.assign({}, _opts);
   opts.dir = path.resolve(opts.dir);
   opts.out = path.resolve(opts.out);
@@ -17,7 +17,7 @@ module.exports = function(_opts, done) {
     opts.outPath = path.resolve(opts.out, path.basename(opts.dir, '.app')) + '.zip';
   }
 
-  function zip(cb) {
+  function zip (cb) {
     if (opts.platform !== 'darwin') {
       zipFolder(opts.dir, opts.outPath, cb);
       return;
@@ -30,7 +30,7 @@ module.exports = function(_opts, done) {
       './'
     ];
 
-    run('zip', args, { env: process.env, cwd: path.join(opts.dir, '..') }, function(_err) {
+    run('zip', args, { env: process.env, cwd: path.join(opts.dir, '..') }, function (_err) {
       if (_err) {
         return cb(_err);
       }
@@ -40,8 +40,8 @@ module.exports = function(_opts, done) {
   debug('creating zip', opts);
 
   series([
-    function removeZipIfExists(cb) {
-      fs.stat(opts.outPath, function(err, stats) {
+    function removeZipIfExists (cb) {
+      fs.stat(opts.outPath, function (err, stats) {
         if (err) return cb(null);
 
         if (!stats.isFile()) {
@@ -52,7 +52,7 @@ module.exports = function(_opts, done) {
     },
     fs.mkdirs.bind(null, opts.out),
     zip
-  ], function(err) {
+  ], function (err) {
     if (err) {
       return done(err);
     }

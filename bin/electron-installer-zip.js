@@ -23,7 +23,7 @@ var opts = {
   out: cli.argv._[1]
 };
 
-zip(opts, function(err) {
+zip(opts, function (err) {
   cli.abortIfError(err);
   cli.ok(format('Created %s', opts.out));
 });
