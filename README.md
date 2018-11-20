@@ -28,7 +28,9 @@ var zip = require('electron-installer-zip');
 
 var opts = {
   dir: 'dist/MongoDB Compass-darwin-x64/MongoDB Compass.app',
-  out: 'dist/'
+  // out can either be a directory or a path for a ZIP file
+  out: 'dist/',
+  // out: 'dist/App.zip',
 };
 
 zip(opts, function(err, res) {
