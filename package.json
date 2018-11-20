@@ -9,8 +9,9 @@
     "url": "git://github.com/mongodb-js/electron-installer-zip.git"
   },
   "scripts": {
-    "test": "npm run ci",
-    "ci": "eslint . && mocha",
+    "test": "npm run lint && npm run spec",
+    "lint": "eslint .",
+    "spec": "mocha",
     "check": "mongodb-js-precommit"
   },
   "precommmit": [
