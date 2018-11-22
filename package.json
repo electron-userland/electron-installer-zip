@@ -17,11 +17,11 @@
     "electron-installer-zip": "bin/electron-installer-zip.js"
   },
   "dependencies": {
-    "async": "^2.1.2",
     "cross-zip": "^2.1.5",
     "debug": "^2.2.0",
-    "fs-extra": "^1.0.0",
-    "mongodb-js-cli": "0.0.3"
+    "fs-extra": "^7.0.0",
+    "mongodb-js-cli": "0.0.3",
+    "pify": "^4.0.1"
   },
   "license": "Apache-2.0",
   "devDependencies": {
