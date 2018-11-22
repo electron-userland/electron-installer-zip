@@ -1,7 +1,6 @@
+var crossZip = require('cross-zip');
 var fs = require('fs-extra');
 var path = require('path');
-var run = require('electron-installer-run');
-var zipFolder = require('zip-folder');
 var series = require('async').series;
 var debug = require('debug')('electron-installer-zip');
 
@@ -17,26 +16,6 @@ module.exports = function (_opts, done) {
     opts.outPath = path.resolve(opts.out, path.basename(opts.dir, '.app')) + '.zip';
   }
 
-  function zip (cb) {
-    if (opts.platform !== 'darwin') {
-      zipFolder(opts.dir, opts.outPath, cb);
-      return;
-    }
-
-    var args = [
-      '-r',
-      '--symlinks',
-      opts.outPath,
-      './'
-    ];
-
-    run('zip', args, { env: process.env, cwd: path.join(opts.dir, '..') }, function (_err) {
-      if (_err) {
-        return cb(_err);
-      }
-      cb(null, opts.outPath);
-    });
-  }
   debug('creating zip', opts);
 
   series([
@@ -51,7 +30,9 @@ module.exports = function (_opts, done) {
       });
     },
     fs.mkdirs.bind(null, opts.out),
-    zip
+    function zip (cb) {
+      crossZip.zip(opts.dir, opts.outPath, cb);
+    }
   ], function (err) {
     if (err) {
       return done(err);

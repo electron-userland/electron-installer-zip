@@ -9,27 +9,6 @@ describe('electron-installer-zip', function () {
     assert(require('../'));
   });
 
-  it('should use `which zip` --symlinks on darwin', function (done) {
-    var options = {
-      dir: path.join(__dirname, '..', 'bin'),
-      out: path.join(__dirname, 'dist'),
-      platform: 'darwin'
-    };
-
-    var zip = proxyquire('../', {
-      'electron-installer-run': function (bin, args, opts, cb) {
-        assert.strictEqual(bin, 'zip');
-        assert(args.indexOf('--symlinks') > -1);
-        assert.strictEqual(opts.cwd, path.join(options.dir, '..'));
-        cb(null, opts);
-      },
-      'zip-folder': function (src, dest, cb) {
-        cb(new Error('Should not have called zip-folder!'));
-      }
-    });
-    zip(options, done);
-  });
-
   it('should refuse to wipe a directory', function (done) {
     var options = {
       dir: path.join(__dirname, '..', 'bin'),
