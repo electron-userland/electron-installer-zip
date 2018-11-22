@@ -1,5 +1,6 @@
 node_modules/
 .DS_Store
+.nyc_output
 npm-debug.log
 test/*.zip
 test/dist
