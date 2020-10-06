@@ -3,10 +3,10 @@
   "description": "Create a zip file with support for symlinks required by electron on osx.",
   "version": "0.1.2",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
-  "homepage": "http://github.com/mongodb-js/electron-installer-zip",
+  "homepage": "http://github.com/electron-userland/electron-installer-zip",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mongodb-js/electron-installer-zip.git"
+    "url": "git://github.com/electron-userland/electron-installer-zip.git"
   },
   "scripts": {
     "test": "npm run lint && npm run spec",
