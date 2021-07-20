@@ -1,6 +1,6 @@
-# electron-installer-zip [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
+# electron-installer-zip [![CI Status][actions_img]][actions_url] [![npm][npm_img]][npm_url]
 
-> Create a zip file with support for symlinks required by electron on osx.
+> Create a zip file with support for symlinks required by Electron on macOS.
 
 ## Installation
 
@@ -47,9 +47,9 @@ zip(opts, function(err, res) {
 
 Apache 2.0
 
-[travis_img]: https://img.shields.io/travis/electron-userland/electron-installer-zip.svg
-[travis_url]: https://travis-ci.org/electron-userland/electron-installer-zip
+[actions_img]: https://github.com/electron-userland/electron-installer-zip/actions/workflows/ci.yml/badge.svg
+[actions_url]: https://github.com/electron-userland/electron-installer-zip/actions/workflows/ci.yml
 [npm_img]: https://img.shields.io/npm/v/electron-installer-zip.svg
 [npm_url]: https://npmjs.org/package/electron-installer-zip
-[electron-packager]: https://github.com/maxogden/electron-packager
+[electron-packager]: https://github.com/electron/electron-packager
 [appzip]: https://github.com/LinusU/node-appzip
