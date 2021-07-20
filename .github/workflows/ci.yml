@@ -28,8 +28,16 @@ jobs:
         run: yarn
       - name: Lint
         run: yarn lint
-      - name: Test
-        run: yarn spec
+      - name: Test with code coverage
+        run: yarn coverage
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v2.0.1
+        with:
+          file: ./coverage/lcov.info
+          env_vars: CI_OS,NODE_VERSION
+        env:
+          CI_OS: ${{ matrix.os }}
+          NODE_VERSION: ${{ matrix.node-version }}
 
   automerge:
     needs: build
