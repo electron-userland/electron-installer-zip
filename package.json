@@ -9,10 +9,11 @@
     "url": "git://github.com/electron-userland/electron-installer-zip.git"
   },
   "scripts": {
-    "test": "npm run lint && npm run spec",
+    "check": "mongodb-js-precommit",
+    "coverage": "nyc mocha",
     "lint": "eslint .",
     "spec": "mocha",
-    "check": "mongodb-js-precommit"
+    "test": "npm run lint && npm run spec"
   },
   "precommmit": [
     "check",
@@ -36,6 +37,7 @@
     "mocha": "^9.0.2",
     "mongodb-js-fmt": "1.0.0",
     "mongodb-js-precommit": "^0.2.8",
+    "nyc": "^15.1.0",
     "pre-commit": "^1.0.10",
     "proxyquire": "^2.1.3",
     "sinon": "^7.1.1"
