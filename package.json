@@ -34,7 +34,7 @@
   "devDependencies": {
     "eslint-config-mongodb-js": "^5.0.3",
     "mocha": "^9.0.2",
-    "mongodb-js-fmt": "0.0.3",
+    "mongodb-js-fmt": "1.0.0",
     "mongodb-js-precommit": "^0.2.8",
     "pre-commit": "^1.0.10",
     "proxyquire": "^2.1.3",
