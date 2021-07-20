@@ -46,7 +46,7 @@ describe('electron-installer-zip', function() {
   });
 
   it('should make a zip file in the out dir', function(done) {
-    if (process.platform === 'darwin') this.timeout(5000);
+    if (process.platform === 'darwin') this.timeout(10000);
     var options = {
       dir: path.join(__dirname, '..', 'bin'),
       out: path.join(__dirname, 'fixtures')
@@ -66,7 +66,7 @@ describe('electron-installer-zip', function() {
   });
 
   it('should wipe the out file if it already exists', function(done) {
-    if (process.platform === 'darwin') this.timeout(5000);
+    if (process.platform === 'darwin') this.timeout(10000);
     var options = {
       dir: path.join(__dirname, '..', 'bin'),
       out: path.join(__dirname, 'fixtures', 'good.zip')
