@@ -10,7 +10,7 @@
   },
   "scripts": {
     "check": "mongodb-js-precommit",
-    "coverage": "nyc mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "eslint .",
     "spec": "mocha",
     "test": "npm run lint && npm run spec"
