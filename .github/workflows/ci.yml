@@ -15,7 +15,6 @@ jobs:
       matrix:
         os: [windows-latest, macOS-latest, ubuntu-latest]
         node-version: [12.x, 14.x, 16.x]
-
     steps:
       - name: Fix git checkout line endings
         run: git config --global core.autocrlf input
@@ -31,3 +30,11 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn spec
+
+  automerge:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
