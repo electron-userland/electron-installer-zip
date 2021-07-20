@@ -52,4 +52,3 @@ Apache 2.0
 [npm_img]: https://img.shields.io/npm/v/electron-installer-zip.svg
 [npm_url]: https://npmjs.org/package/electron-installer-zip
 [electron-packager]: https://github.com/electron/electron-packager
-[appzip]: https://github.com/LinusU/node-appzip
