@@ -1,4 +1,8 @@
-# electron-installer-zip [![CI Status][actions_img]][actions_url] [![npm][npm_img]][npm_url]
+# electron-installer-zip
+
+[![CI status][actions_img]][actions_url]
+[![npm][npm_img]][npm_url]
+[![Code coverage](https://codecov.io/gh/electron-userland/electron-installer-zip/branch/main/graph/badge.svg?token=C0rDL9lCyg)](https://codecov.io/gh/electron-userland/electron-installer-zip)
 
 > Create a zip file with support for symlinks required by Electron on macOS.
 
