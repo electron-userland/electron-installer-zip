@@ -1000,7 +1000,7 @@ d@~0.1.1:
   dependencies:
     es5-ext "~0.10.2"
 
-debug@4.3.1, debug@^4.0.1, debug@^4.1.0:
+debug@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
   integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
@@ -1014,7 +1014,7 @@ debug@^2.1.1, debug@^2.2.0:
   dependencies:
     ms "2.0.0"
 
-debug@^4.1.1:
+debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
@@ -1101,10 +1101,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-electron-installer-run@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/electron-installer-run/-/electron-installer-run-0.1.2.tgz#9993d351f5fb711bd4c867e0da087cbbd22d446f"
-  integrity sha1-mZPTUfX7cRvUyGfg2gh8u9ItRG8=
+electron-installer-run@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/electron-installer-run/-/electron-installer-run-1.0.2.tgz#edee1ef427d61490b9e5a350080a00f155ba0a8f"
+  integrity sha512-747Ink14rod58kfsWRCSrxh+OfFK2iqZZDIMTDLaPvaUI1jhmxM+KjLuOXDATkSGbLCQWO0napCDy9618hwrUA==
   dependencies:
     debug "^2.2.0"
     which "^1.2.0"
