@@ -2,3 +2,5 @@
 .jsfmtrc
 .travis.yml
 test/
+.yarn/
+.yarnrc.yml

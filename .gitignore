@@ -5,3 +5,8 @@ node_modules/
 *.log
 test/*.zip
 test/dist
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+.pnp.*
